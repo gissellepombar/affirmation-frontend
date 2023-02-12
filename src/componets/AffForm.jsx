@@ -1,6 +1,6 @@
 import Form from "react-bootstrap/Form";
 // import Button from "react-bootstrap/Button";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export default function AffForm({ setMessages }) {
     
@@ -23,7 +23,6 @@ export default function AffForm({ setMessages }) {
     })  
         .then(res => res.json())
         .then(() => {
-            // setUser(response.message)
             setUser('Affirmation Posted!');
             setTitle('');
             setQuote('');
