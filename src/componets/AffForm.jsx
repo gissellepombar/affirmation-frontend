@@ -1,15 +1,14 @@
 import Form from "react-bootstrap/Form";
 // import Button from "react-bootstrap/Button";
 import { useState, useEffect } from "react";
-
-
-//createContext
+import { useNavigate } from "react-router-dom"
 
 export default function AffForm() {
     
     const [title, setTitle] = useState("");
     const [quote, setQuote] = useState("");
-    const [user, setUser] = useState('');
+    const [user, setUser] = useState("");
+    const navigate = useNavigate()
 
     //stops page from refreshing 
     const handleSubmit = (e) => {
@@ -25,22 +24,23 @@ export default function AffForm() {
     })  
         .then(res => res.json())
         .then(response => {
-            //1. do something w the new user
-            setUser(response.message)
+            // setUser(response.message)
+            setUser('Affirmation Posted!')
         })
-        .catch(err => alert(err.message))
+        .catch(err => console.log(err.message))
+        navigate('/')
 }
-    useEffect(() => {
-        fetch('http://127.0.0.1:5002/getall')
-        .then(res => res.json())
-        //.then(data => )
-        .catch(alert)
-    }, [user])
+    // useEffect(() => {
+    //     fetch('http://127.0.0.1:5002/getall')
+    //     .then(res => res.json())
+    //     //.then(data => )
+    //     .catch(alert)
+    // }, [user])
 
     return (
         <>
         <div>{!user 
-            ? <p>'Post an affirmation!' </p>
+            ? <p>Post an affirmation! </p>
             : user}</div>
         <form onSubmit={handleSubmit}>
             <Form.Group>

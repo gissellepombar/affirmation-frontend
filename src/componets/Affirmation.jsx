@@ -1,5 +1,6 @@
-import {useState, useEffect} from "react";
+import {useState} from "react";
 import AffCard from "./AffCard";
+import AffForm from "./AffForm";
 
 export default function Affirmation() {
     const [messages, setMessages] = useState()
@@ -8,7 +9,7 @@ const getMessages = () => {
     fetch(`http://127.0.0.1:5002/getall`)
     .then(res => res.json()
     .then(setMessages))
-    .catch(alert)
+    .catch(err => console.log(err.message))
 }
 
     return ( 
@@ -23,6 +24,9 @@ const getMessages = () => {
                     <AffCard key={message.id} message={message}/>
                 ))}
             </section>}
+            <div>
+                <AffForm />
+            </div>
         </article>
     )
 
