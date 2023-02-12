@@ -1,14 +1,13 @@
 import Form from "react-bootstrap/Form";
 // import Button from "react-bootstrap/Button";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"
 
-export default function AffForm() {
+export default function AffForm({ setMessages }) {
     
     const [title, setTitle] = useState("");
     const [quote, setQuote] = useState("");
     const [user, setUser] = useState("");
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
 
     //stops page from refreshing 
     const handleSubmit = (e) => {
@@ -23,20 +22,20 @@ export default function AffForm() {
          body: JSON.stringify({title, quote}),
     })  
         .then(res => res.json())
-        .then(response => {
+        .then(() => {
             // setUser(response.message)
-            setUser('Affirmation Posted!')
+            setUser('Affirmation Posted!');
+            setTitle('');
+            setQuote('');
+            setMessages(prevMessages => [...prevMessages, {title, quote}]);
+            //alternative is to have a fetch inside a fetch...
+            // fetch(`http://127.0.0.1:5002/getall`)
+            // .then(res => res.json()
+            // .then(setMessages))
+            // .catch(err => console.log(err.message))
         })
         .catch(err => console.log(err.message))
-        navigate('/')
 }
-    // useEffect(() => {
-    //     fetch('http://127.0.0.1:5002/getall')
-    //     .then(res => res.json())
-    //     //.then(data => )
-    //     .catch(alert)
-    // }, [user])
-
     return (
         <>
         <div>{!user 

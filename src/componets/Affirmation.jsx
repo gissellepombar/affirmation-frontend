@@ -1,22 +1,22 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import AffCard from "./AffCard";
 import AffForm from "./AffForm";
 
 export default function Affirmation() {
     const [messages, setMessages] = useState()
 
-const getMessages = () => {
-    fetch(`http://127.0.0.1:5002/getall`)
-    .then(res => res.json()
-    .then(setMessages))
-    .catch(err => console.log(err.message))
-}
+    useEffect(() => {
+        fetch(`http://127.0.0.1:5002/getall`)
+        .then(res => res.json()
+        .then(setMessages))
+        .catch(err => console.log(err.message))
+    }, []);
 
     return ( 
         <article>
-            <div>
+            {/* <div>
                 <button onClick={() => getMessages()}>Link</button>
-            </div>
+            </div> */}
             {!messages
             ? <h2>Click to see Affirmations</h2>
             : <section className="affirmation-container">
@@ -25,7 +25,7 @@ const getMessages = () => {
                 ))}
             </section>}
             <div>
-                <AffForm />
+                <AffForm setMessages={setMessages}/>
             </div>
         </article>
     )
