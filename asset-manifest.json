@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/affirmation-frontend/static/css/main.08a5d25d.css",
+    "main.js": "/affirmation-frontend/static/js/main.ac5c4e3d.js",
+    "static/js/787.4ebffcdb.chunk.js": "/affirmation-frontend/static/js/787.4ebffcdb.chunk.js",
+    "index.html": "/affirmation-frontend/index.html",
+    "main.08a5d25d.css.map": "/affirmation-frontend/static/css/main.08a5d25d.css.map",
+    "main.ac5c4e3d.js.map": "/affirmation-frontend/static/js/main.ac5c4e3d.js.map",
+    "787.4ebffcdb.chunk.js.map": "/affirmation-frontend/static/js/787.4ebffcdb.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.08a5d25d.css",
+    "static/js/main.ac5c4e3d.js"
+  ]
+}
