@@ -6,7 +6,7 @@ export default function Affirmation() {
     const [messages, setMessages] = useState()
 
     useEffect(() => {
-        fetch(`http://127.0.0.1:5002/getall`)
+        fetch(`http://127.0.0.1:5002/affirmations`)
         .then(res => res.json()
         .then(setMessages))
         .catch(err => console.log(err.message))

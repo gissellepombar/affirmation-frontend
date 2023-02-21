@@ -2,15 +2,18 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Affirmation from './componets/Affirmation';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
+import DailyAff from './componets/DailyAff';
 
 
 function App() {
   return (
     <BrowserRouter>
     <div className="App">
-        <Routes>
+        {/* <Routes>
             < Route exact path='/' element={<Affirmation />} />
-        </Routes>
+        </Routes> */}
+        {/* <Affirmation /> */}
+        <DailyAff />
     
     </div>
     </BrowserRouter>
